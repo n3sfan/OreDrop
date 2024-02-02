@@ -22,6 +22,9 @@ public class CommandOreDrop implements CommandExecutor {
         if (args.length < 1) {
             return false;
         }
+        if (!sender.hasPermission("oredrop.admin")) {
+            return true;
+        }
 
         switch (args[0].toLowerCase(Locale.ROOT).charAt(0)) {
             case 'g':

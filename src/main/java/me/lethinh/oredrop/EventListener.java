@@ -42,7 +42,7 @@ public class EventListener implements Listener {
     public void onBreak(BlockBreakEvent event) {
         Block b = event.getBlock();
 
-        if ((event.getPlayer().hasPermission("oredrop.admin") && event.getPlayer().isSneaking()) || !oreManager.isBlockOre(b) || !oreManager.hasOreRegen(b)) {
+        if (!oreManager.isBlockOre(b) || !oreManager.hasOreRegen(b) || (event.getPlayer().hasPermission("oredrop.admin") && event.getPlayer().isSneaking())) {
             return;
         }
 
@@ -72,6 +72,10 @@ public class EventListener implements Listener {
 
         oreManager.removeOreBlock(event.getClickedBlock());
         event.getClickedBlock().setType(Material.AIR);
-        player.getInventory().addItem(oreBlockStack);
+        if (player.getInventory().firstEmpty() == -1) {
+            player.getWorld().dropItemNaturally(event.getClickedBlock().getLocation(), oreBlockStack);
+        } else {
+            player.getInventory().addItem(oreBlockStack);
+        }
     }
 }

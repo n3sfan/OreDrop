@@ -2,6 +2,7 @@ package me.lethinh.oredrop;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.inventory.Inventory;
 
 import java.util.Random;
 
