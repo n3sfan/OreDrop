@@ -1,0 +1,20 @@
+Id: IRON_BLOCK
+# giây
+TimeRegen: 10 
+# Block sau khi đập
+IdBlockBreak: BEDROCK
+# Item drop ra, command
+Drops:
+  1:
+    Type: item
+    Id: IRON_BLOCK
+    Name: '&bKhối sắt bự'
+    Lore:
+      - 'Dùng để trao đổi'
+    Amount: 1-2
+    Chance: 100
+  2:
+    Type: cmd
+    # Chance:Command
+    Cmds:
+      - 50:give <player> diamond 2

@@ -1,0 +1,8 @@
+name: OreDrop
+version: '${version}'
+main: me.lethinh.oredrop.OreDropPlugin
+commands:
+  oredrop:
+    aliases: [ore, od]
+    usage: /oredrop give <name> <amount> | reload
+    permission: oredrop.admin
